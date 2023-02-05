@@ -17,6 +17,7 @@ function App() {
 	}
 
 	function onDragEnd(e) {
+		e.target.style.opacity = '1';
 		e.target.style.backgroundColor = 'transparent';
 		setDragged(null);
 	}
@@ -26,6 +27,7 @@ function App() {
 		e.target.style.backgroundColor = '#424242';
 		const draggedOverItem = items[index];
 		if (dragged === draggedOverItem) {
+			e.target.style.opacity = '0';
 			return;
 		}
 
@@ -35,6 +37,11 @@ function App() {
 	}
 
 	function onDragLeave(e) {
+		e.target.style.backgroundColor = 'transparent';
+	}
+
+	function onDrop(e) {
+		e.preventDefault();
 		e.target.style.backgroundColor = 'transparent';
 	}
 
@@ -64,7 +71,8 @@ function App() {
 								className='draggable'
 								key={index}
 								draggable
-								onDragStart={(e) => onDragStart(e, index)}>
+								onDragStart={(e) => onDragStart(e, index)}
+								onDragOver={(e) => e.preventDefault()}>
 								<FaBars />
 							</div>
 							<span className='item'>{item}</span>
