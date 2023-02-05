@@ -1,38 +1,80 @@
-.App {
-  text-align: center;
+:root {
+	--text-color: #d3d3d3;
+	--border-color: #d3d3d3;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+html,
+body {
+	height: 100%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+body {
+	font-family: 'Open Sans', sans-serif;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #151515;
+	color: var(--text-color);
 }
 
-.App-link {
-  color: #61dafb;
+ul {
+	list-style: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 1rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+ul li.drag__item {
+	padding: 1rem;
+	color: var(--text-color);
+	font-size: 1.5rem;
+	border-radius: 10px;
+	cursor: pointer;
+	width: 10rem;
+	height: 10rem;
+	border: 1px solid var(--border-color);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+ul li.drag__item:hover {
+	background: #1e1e1e;
+}
+
+ul li.list__item {
+	padding: 1rem;
+	color: var(--text-color);
+	font-size: 1.5rem;
+	width: 10rem;
+	height: 5rem;
+	text-align: center;
+}
+
+.list__header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+	font-size: 2rem;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+p {
+	font-size: 1.3rem;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	margin-block: 1rem;
 }
