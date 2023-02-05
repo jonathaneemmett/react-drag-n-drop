@@ -30,9 +30,11 @@ ul {
 	justify-content: center;
 	flex-wrap: wrap;
 	gap: 1rem;
+	padding: 1rem;
 }
 
 ul li.drag__item {
+	opacity: 1;
 	padding: 1rem;
 	color: var(--text-color);
 	font-size: 1.5rem;
@@ -77,4 +79,8 @@ p {
 	display: flex;
 	justify-content: center;
 	margin-block: 1rem;
+}
+
+.dragged {
+	opacity: 0;
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaBars } from 'react-icons/fa';
 import './App.css';
 
@@ -7,6 +7,27 @@ export const sqData = ['item1', 'item2', 'item3', 'item4', 'item5'];
 function App() {
 	const [items, setItems] = useState(sqData);
 	const [dragged, setDragged] = useState(null);
+
+	useEffect(() => {
+		window.addEventListener(
+			'dragover',
+			function (e) {
+				e.preventDefault();
+			},
+			false,
+		);
+		window.addEventListener(
+			'drop',
+			function (e) {
+				e.preventDefault();
+				let children = document.querySelectorAll('.drag__item');
+				children.forEach((child) => {
+					child.style.opacity = '1';
+				});
+			},
+			false,
+		);
+	}, []);
 
 	function onDragStart(e, index) {
 		let draggedItem = items[index];
@@ -40,11 +61,6 @@ function App() {
 		e.target.style.backgroundColor = 'transparent';
 	}
 
-	function onDrop(e) {
-		e.preventDefault();
-		e.target.style.backgroundColor = 'transparent';
-	}
-
 	return (
 		<div className='App'>
 			<h2 className='list__header'>React Drag-N-Drop Demo</h2>
@@ -72,7 +88,8 @@ function App() {
 								key={index}
 								draggable
 								onDragStart={(e) => onDragStart(e, index)}
-								onDragOver={(e) => e.preventDefault()}>
+								onDragOver={(e) => e.preventDefault()}
+								onDragExit={() => console.log('exit')}>
 								<FaBars />
 							</div>
 							<span className='item'>{item}</span>
