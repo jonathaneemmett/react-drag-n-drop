@@ -22,7 +22,15 @@ function App() {
 				e.preventDefault();
 				let children = document.querySelectorAll('.drag__item');
 				children.forEach((child) => {
-					child.style.opacity = '1';
+					let childDiv = child.querySelector('.draggable');
+					let svg = childDiv.querySelector('svg');
+					let path = svg.querySelector('path');
+					let span = child.querySelector('.item');
+					span.style = null;
+					child.style = null;
+					childDiv.style = null;
+					path.style = null;
+					svg.style = null;
 				});
 			},
 			false,
@@ -63,17 +71,22 @@ function App() {
 
 	return (
 		<div className='App'>
-			<h2 className='list__header'>React Drag-N-Drop Demo</h2>
-			<p>Move items to desired location</p>
-			<ul>
-				{items.map((item, index) => {
-					return (
-						<li key={item} className='list__item'>
-							{index + 1}: {item}
-						</li>
-					);
-				})}
-			</ul>
+			<div className='list__header'>
+				<h2>React Drag-N-Drop Demo</h2>
+				<p>Move items to desired location</p>
+			</div>
+			<div className='drag__header'>
+				<p>Location</p>
+				<ul>
+					{items.map((item, index) => {
+						return (
+							<li key={item} className='list__item'>
+								{index + 1}
+							</li>
+						);
+					})}
+				</ul>
+			</div>
 			<ul>
 				{items.map((item, index) => {
 					return (

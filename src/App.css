@@ -30,12 +30,10 @@ ul {
 	justify-content: center;
 	flex-wrap: wrap;
 	gap: 1rem;
-	padding: 1rem;
 }
 
 ul li.drag__item {
 	opacity: 1;
-	padding: 1rem;
 	color: var(--text-color);
 	font-size: 1.5rem;
 	border-radius: 10px;
@@ -54,17 +52,16 @@ ul li.drag__item:hover {
 }
 
 ul li.list__item {
-	padding: 1rem;
 	color: var(--text-color);
 	font-size: 1.5rem;
 	width: 10rem;
-	height: 5rem;
 	text-align: center;
 }
 
 .list__header {
 	display: flex;
-	justify-content: space-between;
+	flex-direction: column;
+	justify-content: center;
 	align-items: center;
 	margin-bottom: 20px;
 	font-size: 2rem;
@@ -73,7 +70,7 @@ ul li.list__item {
 	justify-content: center;
 }
 
-p {
+.list__header p {
 	font-size: 1.3rem;
 	width: 100%;
 	display: flex;
@@ -83,4 +80,15 @@ p {
 
 .dragged {
 	opacity: 0;
+}
+
+.drag__header {
+	margin: 1rem;
+}
+
+.drag__header p {
+	font-size: 1.2rem;
+	width: 100%;
+	text-align: center;
+	margin-block-end: 0.5rem;
 }
